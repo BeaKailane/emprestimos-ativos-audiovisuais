@@ -4,7 +4,7 @@ Plugin desenvolvido para WordPress com o objetivo de gerenciar o empréstimo de 
 
 ## Sobre o projeto
 
-O **Empréstimos Ativos Audiovisuais** é uma solução para organizar e centralizar o gerenciamento de equipamentos compartilhados em uma organização.
+O **Empréstimos Ativos Audiovisuais** é uma solução para organizar e centralizar o gerenciamento de equipamentos compartilhados da organização.
 
 A ferramenta permite acompanhar os empréstimos, consultar a disponibilidade dos ativos e manter um histórico das movimentações, contribuindo para uma gestão mais eficiente do patrimônio.
 
