@@ -72,10 +72,6 @@ emprestimos-plugin/
 
 Desenvolver uma ferramenta para otimizar o controle de ativos audiovisuais, reduzir processos manuais e proporcionar maior organização e rastreabilidade dos empréstimos e devoluções.
 
-## Autoria
-
-Desenvolvido por **Beatriz Kailane**.
-
 ## Licença
 
 Projeto desenvolvido para fins de gestão e controle de ativos audiovisuais.
