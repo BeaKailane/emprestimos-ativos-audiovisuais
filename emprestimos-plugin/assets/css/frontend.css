@@ -1,0 +1,361 @@
+/* =========================================================
+   EA — CLEAN / MODERNO (Revista Oeste)
+   VERSÃO COMPLETA E CORRIGIDA
+========================================================= */
+
+:root {
+  --ea-bg: #F9F9F9;
+  --ea-bg-white: #FFFFFF;
+  --ea-border: #E5E5E5;
+  --ea-text: #1C1C1C;
+  --ea-muted: #6B7280;
+  --ea-primary: #C5A059;
+  --ea-primary-hover: #b18c4f;
+  --ea-red: #EF4444;
+  --ea-green: #10B981;
+  --ea-yellow: #F59E0B;
+  --ea-blue: #0284C7;
+  --ea-radius-lg: 12px;
+  --ea-radius-md: 8px;
+  --ea-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --ea-shadow: 0 8px 20px rgba(0,0,0,.08);
+  --ea-shadow-hover: 0 12px 30px rgba(0,0,0,.12);
+}
+
+/* 1) BASE */
+.ea-catalog-container, .ea-userpanel, .ea-modal {
+  font-family: var(--ea-font);
+  color: var(--ea-text);
+  box-sizing: border-box;
+}
+
+.ea-catalog-container *, .ea-userpanel *, .ea-modal * { box-sizing: border-box; }
+
+/* 2) CATÁLOGO - CABEÇALHO E FILTROS GRID */
+.ea-catalog-container {
+  max-width: 1320px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.ea-catalog-header {
+  margin-bottom: 30px;
+  padding: 25px;
+  background: var(--ea-bg-white);
+  border-radius: var(--ea-radius-lg);
+  border: 1px solid var(--ea-border);
+  box-shadow: var(--ea-shadow);
+}
+
+.ea-catalog-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ea-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ea-catalog-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  align-items: end;
+}
+
+.ea-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ea-filter-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ea-muted);
+  text-transform: uppercase;
+}
+
+/* Inputs, Selects e Textareas */
+.ea-input, .ea-select, .ea-textarea {
+  width: 100% !important;
+  height: 42px;
+  padding: 8px 12px;
+  border-radius: var(--ea-radius-md);
+  border: 1px solid var(--ea-border);
+  background: #F9FAFB;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.ea-textarea { height: auto; min-height: 90px; }
+
+.ea-input:focus, .ea-select:focus, .ea-textarea:focus,
+.ea-input:hover, .ea-select:hover {
+  border-color: var(--ea-primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+}
+
+/* 3) GRID E CARDS DO CATÁLOGO */
+.ea-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.ea-asset-card {
+  background: var(--ea-bg-white);
+  border-radius: var(--ea-radius-lg);
+  border: 1px solid var(--ea-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.ea-asset-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ea-shadow-hover);
+}
+
+.ea-asset-image {
+  background: #FDFDFD;
+  padding: 20px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ea-asset-image img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.ea-asset-info {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ea-asset-name { font-size: 16px; font-weight: 800; margin: 0; color: var(--ea-text); }
+.ea-asset-type { font-size: 12px; font-weight: 600; color: var(--ea-muted); text-transform: uppercase; }
+
+/* 4) BOTÃO - CORREÇÃO DE HOVER E LEGIBILIDADE */
+.ea-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--ea-radius-md);
+  border: 1px solid var(--ea-border);
+  background: #F3F4F6;
+  color: var(--ea-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ea-btn-primary, .ea-btn-view-asset {
+  background: var(--ea-primary) !important;
+  color: #FFFFFF !important; /* Texto branco forçado */
+  border: none;
+}
+
+.ea-btn-view-asset { width: calc(100% - 32px); margin: 0 16px 16px; }
+
+.ea-btn-primary:hover, .ea-btn-view-asset:hover {
+  background: var(--ea-primary-hover) !important;
+  color: #FFFFFF !important; /* Mantém texto branco no hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+}
+
+.ea-btn-secondary { background: #fff; }
+.ea-btn-secondary:hover { background: #f9f9f9; border-color: var(--ea-primary); }
+
+/* 5) STATUS BADGES */
+.ea-asset-status, .ea-loan-status, .ea-detail-status {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.ea-status-disponivel { background: #D1FAE5; color: var(--ea-green); }
+.ea-status-reservado { background: #FEF3C7; color: var(--ea-yellow); }
+.ea-status-emprestado { background: #E0F2FE; color: var(--ea-blue); }
+.ea-status-indisponivel, .ea-status-atrasado { background: #FEE2E2; color: var(--ea-red); }
+.ea-status-manutencao { background: #F3F4F6; color: #4B5563; }
+
+/* 6) MODAIS - CENTRALIZAÇÃO FIXA */
+.ea-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Ativado via JS display: flex */
+.ea-modal[style*="display: flex"], .ea-modal[style*="display: block"] { display: flex !important; }
+
+.ea-modal-content {
+  background: #fff;
+  border-radius: var(--ea-radius-lg);
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: ea-modal-entry 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ea-modal-small .ea-modal-content { max-width: 400px; }
+
+@keyframes ea-modal-entry {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.ea-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--ea-muted);
+  line-height: 1;
+}
+
+/* 7) DETALHES E FORMULÁRIO DENTRO DA MODAL */
+.ea-asset-detail {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.ea-asset-detail-image {
+  background: #f8fafc;
+  border-radius: var(--ea-radius-lg);
+  padding: 20px;
+  border: 1px solid var(--ea-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ea-asset-detail-image img { max-width: 100%; max-height: 300px; object-fit: contain; }
+
+.ea-detail-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: var(--ea-radius-md);
+}
+
+.ea-spec strong { display: block; color: var(--ea-text); font-size: 14px; margin-bottom: 2px; }
+
+.ea-form-section {
+  background: #fff;
+  border: 1px solid var(--ea-border);
+  padding: 20px;
+  border-radius: var(--ea-radius-lg);
+  margin-bottom: 20px;
+}
+
+.ea-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+
+/* 8) PAINEL DO USUÁRIO */
+.ea-userpanel { background: var(--ea-bg); padding: 20px; border-radius: var(--ea-radius-lg); margin: 20px auto; max-width: 1200px; }
+.ea-up-topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--ea-border); }
+.ea-up-user { display: flex; align-items: center; gap: 15px; }
+.ea-up-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ea-primary); background: #fff; }
+.ea-up-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.ea-up-card { background: #fff; border-radius: var(--ea-radius-lg); padding: 20px; border: 1px solid var(--ea-border); box-shadow: var(--ea-shadow); }
+.ea-loan-card { background: #f9fafb; border: 1px solid var(--ea-border); border-radius: var(--ea-radius-md); padding: 15px; margin-bottom: 10px; }
+.ea-up-scroll { max-height: 400px; overflow-y: auto; padding-right: 8px; }
+
+/* 9) RESPONSIVIDADE */
+@media (max-width: 900px) {
+  .ea-asset-detail { grid-template-columns: 1fr; }
+  .ea-form-row { grid-template-columns: 1fr; }
+}
+
+.ea-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background-color: #f4f7f6;
+}
+
+.ea-login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.ea-login-box h2 { color: #333; margin-bottom: 10px; }
+
+.ea-form-group { text-align: left; margin-bottom: 15px; }
+
+.ea-form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+
+.ea-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.ea-btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.ea-btn-login:hover { background-color: #005177; }
+
+.ea-login-error { color: #d63638; background: #fbeaea; padding: 10px; border-radius: 4px; }
+
+.ea-login-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+@media (max-width: 600px) {
+  .ea-catalog-filters { grid-template-columns: 1fr; }
+  .ea-up-topbar { flex-direction: column; text-align: center; }
+  .ea-up-user { flex-direction: column; }
+}
